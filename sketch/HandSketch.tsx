@@ -107,10 +107,14 @@ export const HandSketch = ({ handpose }: Props) => {
     if (leftHand.length > 0) {
       for (let i = 0; i < 5; i++) {
         const d = Math.max(leftHand[4 * i + 1].y - leftHand[4 * i + 4].y, 0);
-        Matter.Body.setPosition(floors[i], {
-          x: floors[i].position.x,
-          y: (window.innerHeight / 3) * 2 - d,
-        });
+        Matter.Body.setPosition(
+          floors[i],
+          {
+            x: floors[i].position.x,
+            y: (window.innerHeight / 3) * 2 - d,
+          }, //@ts-ignore
+          true
+        );
       }
     }
 
@@ -133,10 +137,14 @@ export const HandSketch = ({ handpose }: Props) => {
     if (rightHand.length > 0) {
       for (let i = 0; i < 5; i++) {
         const d = Math.max(rightHand[4 * i + 1].y - rightHand[4 * i + 4].y, 0);
-        Matter.Body.setPosition(floors[i + 5], {
-          x: floors[i + 5].position.x,
-          y: (window.innerHeight / 3) * 2 - d,
-        });
+        Matter.Body.setPosition(
+          floors[i + 5],
+          {
+            x: floors[i + 5].position.x,
+            y: (window.innerHeight / 3) * 2 - d,
+          }, //@ts-ignore
+          true
+        );
       }
     }
     for (let i = 0; i < 5; i++) {
